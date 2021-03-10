@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Note"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Note App" Height="464.034" Width="537.11">
+    <DockPanel>
+        <StackPanel>
+            <TextBox/>
+        </StackPanel>
+    </DockPanel>
 </Window>
