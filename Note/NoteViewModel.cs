@@ -7,13 +7,17 @@ namespace Note
     {
         NoteModule noteM;
 
-        public ReadOnlyCollection<string> NoteView => noteM.Notes;
 
-        DelegateCommand
+        public ReadOnlyObservableCollection<Notes> NoteView => noteM.Notes;
+
+        public DelegateCommand<string> AddToList { get; private set; }
 
         public NoteViewModel()
-        {
+        {            
+
             noteM = new NoteModule();
+
+            AddToList = new DelegateCommand<string>(noteM.AddToArray);
         }
     }
 }

@@ -5,14 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Note"
         mc:Ignorable="d"
-        Title="Note App" Height="326.034" Width="323.11" ResizeMode="NoResize">
+        Title="Note App" Height="336.034" Width="323.11" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:NoteViewModel/>
+    </Window.DataContext>
     <DockPanel LastChildFill="False">
         <StackPanel DockPanel.Dock="Top">
-            <TextBox Width="200" Height="22" VerticalContentAlignment="Center" Margin="5"/>
-            <Button Content="Add Note" FontSize="20" Width="250" Height="30" Margin="5"/>
+            <TextBox x:Name="Note" Width="200" Height="22" VerticalContentAlignment="Center" Margin="5"/>
+            <Button Command="{Binding AddToList}" CommandParameter="{Binding ElementName=Note , Path=Text}" Content="Add Note" FontSize="20" Width="250" Height="30" Margin="5"/>
         </StackPanel>
         <StackPanel DockPanel.Dock="Top">
-            <ListBox Width="250" Height="200" Margin="10"/>
+            <ListBox x:Name="List" ItemsSource="{Binding NoteView}" Width="250" Height="200" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox/>
+                            <Label Content="{Binding Text}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </DockPanel>
 </Window>

@@ -1,21 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace Note
 {
     class NoteModule
     {
-        private List<string> notes = new List<string>();
-        public ReadOnlyCollection<string> Notes;
+        private ObservableCollection<Notes> notes = new ObservableCollection<Notes>();
+        public ReadOnlyObservableCollection<Notes> Notes;
 
         public NoteModule()
         {
-            Notes = new ReadOnlyCollection<string>(notes);
+            Notes = new ReadOnlyObservableCollection<Notes>(notes);
         }
 
         public void AddToArray(string value)
         {
-            notes.Add(value);
+            Notes newNote = new Notes(value);
+            notes.Add(newNote);
         }
     }
 }
