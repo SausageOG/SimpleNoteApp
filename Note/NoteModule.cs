@@ -17,5 +17,15 @@ namespace Note
             Notes newNote = new Notes(value);
             notes.Add(newNote);
         }
+        public void Check()
+        {
+            for (int i = 0; i < notes.Count; i++)
+            {
+                if (notes[i].IsChecked)
+                {
+                    notes.RemoveAt(i);
+                }
+            }
+        }
     }
 }

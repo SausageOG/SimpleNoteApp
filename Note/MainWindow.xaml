@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Note"
         mc:Ignorable="d"
-        Title="Note App" Height="336.034" Width="323.11" ResizeMode="NoResize">
+        Title="Note App" Height="362.034" Width="323.11" ResizeMode="NoResize">
     <Window.DataContext>
         <local:NoteViewModel/>
     </Window.DataContext>
@@ -19,12 +19,13 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <CheckBox/>
+                            <CheckBox IsChecked="{Binding IsChecked}"/>
                             <Label Content="{Binding Text}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Button Command="{Binding CheckCommand}" Height="20" Width="150" Content="Clear from checked"/>
         </StackPanel>
     </DockPanel>
 </Window>

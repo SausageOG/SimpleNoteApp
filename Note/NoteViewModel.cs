@@ -11,13 +11,14 @@ namespace Note
         public ReadOnlyObservableCollection<Notes> NoteView => noteM.Notes;
 
         public DelegateCommand<string> AddToList { get; private set; }
+        public DelegateCommand CheckCommand { get; private set; }
 
         public NoteViewModel()
         {            
-
             noteM = new NoteModule();
 
             AddToList = new DelegateCommand<string>(noteM.AddToArray);
+            CheckCommand = new DelegateCommand(noteM.Check);
         }
     }
 }
